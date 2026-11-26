@@ -1,5 +1,5 @@
 +++
-title = "Garmin AI quota watchface"
+title = "Garmin watchface with AI subscription usage data"
 date = 2026-10-23T21:47:39Z
 
 [extra]

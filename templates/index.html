@@ -11,7 +11,10 @@
 </head>
 <body>
   <header>
-    <h1>{{ section.title }}</h1>
+    <div class="identity">
+      <h1>{{ section.title }}</h1>
+      <p class="role">{{ section.extra.role }}</p>
+    </div>
     {{ section.content | safe }}
   </header>
   <main>
@@ -34,8 +37,8 @@
       <ul class="employers">
         <li><img class="employer-logo-small nexthink-logo" src="{{ get_url(path='images/employers/nexthink.svg') }}" alt="Nexthink"></li>
         <li><img src="{{ get_url(path='images/employers/prezi.svg') }}" alt="Prezi"></li>
-        <li><img class="zengo-logo" src="{{ get_url(path='images/employers/zengo.svg') }}" alt="Zengo Kft."></li>
         <li><img src="{{ get_url(path='images/employers/mbh.svg') }}" alt="MBH Bank"></li>
+        <li><img class="zengo-logo" src="{{ get_url(path='images/employers/zengo.svg') }}" alt="Zengo Kft."></li>
         <li><img class="employer-logo-large" src="{{ get_url(path='images/employers/telenor.svg') }}" alt="Telenor"></li>
         <li><img class="employer-logo-small" src="{{ get_url(path='images/employers/nokia.svg') }}" alt="Nokia"></li>
       </ul>

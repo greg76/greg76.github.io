@@ -1,5 +1,5 @@
 +++
-title = "Homebrew trend analytics"
+title = "Homebrew trend analytics. Movers & shakers in different categories."
 date = 2026-08-30
 
 [extra]

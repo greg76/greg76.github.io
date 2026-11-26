@@ -1,5 +1,8 @@
 +++
 title = "Gergely Dervarics"
+
+[extra]
+role = "Technical Product Manager"
 +++
 
-Technical product manager. I build things professionally and for my own use. Work with data for analytical insights.
+I'm curious about how things work, why people use them, and how they could be made better. I enjoy exploring technology, making sense of data and occasionally building something I wish already existed.
