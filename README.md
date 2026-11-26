@@ -8,7 +8,7 @@ Install Zola, then run `zola serve` and open the address it prints. Run `zola bu
 
 ## Add a topic
 
-Add a Markdown file in `content/topics/` with a title and an image path relative to `static/`:
+Add a Markdown file in `content/topics/` with a title, a short first-person motivation, and an image path relative to `static/`:
 
 ```toml
 +++
@@ -17,6 +17,7 @@ date = 2026-11-26
 
 [extra]
 image = "images/my-topic.png"
+motivation = "I wanted a simpler way to solve a problem I kept running into."
 +++
 
 Content for the topic page.

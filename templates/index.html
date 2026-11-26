@@ -26,7 +26,10 @@
       <li>
         <a class="project" href="{{ topic.extra.external_url | default(value=topic.permalink) }}">
           <span class="project-image"><img src="{{ get_url(path=topic.extra.image) }}" alt=""></span>
-          <h3>{{ topic.title }}</h3>
+          <span class="project-caption">
+            <h3>{{ topic.title }}</h3>
+            <span class="project-motivation">{{ topic.extra.motivation }}</span>
+          </span>
         </a>
       </li>
       {% endif %}
