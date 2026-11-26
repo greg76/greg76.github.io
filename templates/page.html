@@ -4,13 +4,49 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }} | {{ config.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="{{ get_url(path='home.css') }}">
 </head>
 <body>
-  <main>
-    <p><a href="{{ get_url(path='@/_index.md') }}">All topics</a></p>
+  <main class="page-main">
     <h1>{{ page.title }}</h1>
-    {{ page.content | safe }}
+    <article class="page-content">
+      {{ page.content | safe }}
+    </article>
   </main>
+  <footer>
+    <nav aria-label="Projects">
+      <a href="{{ get_url(path='@/_index.md') }}">← All projects</a>
+    </nav>
+  </footer>
+  <script type="module">
+    const blocks = document.querySelectorAll('pre > code[data-lang="mermaid"]');
+    if (blocks.length) {
+      const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs');
+      const diagrams = Array.from(blocks, (block) => {
+        const diagram = document.createElement('div');
+        diagram.className = 'diagram';
+        diagram.textContent = block.textContent;
+        block.parentElement.replaceWith(diagram);
+        return diagram;
+      });
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: "base",
+        themeVariables: {
+          fontFamily: "Inter, sans-serif",
+          primaryColor: "#ffffff",
+          primaryBorderColor: "#585858",
+          primaryTextColor: "#181818",
+          lineColor: "#585858",
+          edgeLabelBackground: "transparent",
+        },
+      });
+      await mermaid.run({ nodes: diagrams });
+    }
+  </script>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bd02532f73f84a3fb88640e94adb76d2"}'></script>
   <!-- End Cloudflare Web Analytics -->

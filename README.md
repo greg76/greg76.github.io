@@ -27,6 +27,20 @@ Set the top-level `date` to the project creation date. The homepage lists projec
 
 Put the image in `static/images/`. To link straight to a repository instead of the topic page, add `external_url = "https://github.com/username/repository"` under `[extra]`. The two example topics can be edited or removed.
 
+## Diagrams
+
+Use a fenced `mermaid` code block in a topic page to render a diagram:
+
+````markdown
+```mermaid
+flowchart LR
+  A[Data source] --> B[MagTag]
+  B --> C[E-ink display]
+```
+````
+
+The browser loads Mermaid from jsDelivr only on pages with diagrams. JavaScript and access to the CDN are required to render them; otherwise, the diagram source remains visible. See the [Mermaid documentation](https://mermaid.js.org/intro/) for diagram types and syntax.
+
 ## Personal links
 
 Edit the `links` list in `config.toml` to add or change the links on the home page. LinkedIn and Mastodon examples are included as comments.
