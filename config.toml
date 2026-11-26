@@ -1,0 +1,12 @@
+base_url = "https://greg76.github.io"
+title = "Topics"
+compile_sass = false
+build_search_index = false
+
+[extra]
+links = [
+    { title = "GitHub",     url = "https://github.com/greg76", icon = "icons/github.svg" },
+    { title = "LinkedIn",   url = "https://www.linkedin.com/in/gergely-dervarics-3583b82", icon = "icons/linkedin.svg" },
+    { title = "Hackernews", url = "https://news.ycombinator.com/favorites?id=gregkb", icon = "icons/hacker-news.svg" },
+    { title = "Flickr", url = "https://www.flickr.com/photos/greg76/", icon = "icons/flickr.svg" },
+]

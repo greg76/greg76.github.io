@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ section.title }} · Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&amp;family=Inter:wght@400;500;600&amp;display=swap">
+  <link rel="stylesheet" href="{{ get_url(path='home.css') }}">
+</head>
+<body>
+  <header>
+    <h1>{{ section.title }}</h1>
+    {{ section.content | safe }}
+  </header>
+  <main>
+    <h2>Personal projects</h2>
+    {% set topics = get_section(path="topics/_index.md") %}
+    <ul class="projects">
+      {% for topic in topics.pages %}
+      {% if topic.extra.show_on_home | default(value=true) %}
+      <li>
+        <a class="project" href="{{ topic.extra.external_url | default(value=topic.permalink) }}">
+          <span class="project-image"><img src="{{ get_url(path=topic.extra.image) }}" alt=""></span>
+          <h3>{{ topic.title }}</h3>
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <section class="experience" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Past experiences</h2>
+      <ul class="employers">
+        <li><img class="employer-logo-small nexthink-logo" src="{{ get_url(path='images/employers/nexthink.svg') }}" alt="Nexthink"></li>
+        <li><img src="{{ get_url(path='images/employers/prezi.svg') }}" alt="Prezi"></li>
+        <li><img class="zengo-logo" src="{{ get_url(path='images/employers/zengo.svg') }}" alt="Zengo Kft."></li>
+        <li><img src="{{ get_url(path='images/employers/mbh.svg') }}" alt="MBH Bank"></li>
+        <li><img class="employer-logo-large" src="{{ get_url(path='images/employers/telenor.svg') }}" alt="Telenor"></li>
+        <li><img class="employer-logo-small" src="{{ get_url(path='images/employers/nokia.svg') }}" alt="Nokia"></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <nav aria-label="Personal links">
+      {% for link in config.extra.links %}
+      <a href="{{ link.url }}">
+        {% if link.icon %}
+        <img src="{{ get_url(path=link.icon) }}" alt="" width="14" height="14">
+        {% endif %}
+        {{ link.title }}
+      </a>
+      {% endfor %}
+    </nav>
+  </footer>
+</body>
+</html>
